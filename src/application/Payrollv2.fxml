@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <top>
+      <TabPane prefHeight="575.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Add/Remove Employee">
+            <content>
+              <AnchorPane prefHeight="483.0" prefWidth="600.0">
+                     <children>
+                        <TextField fx:id="personName" layoutX="85.0" layoutY="11.0" promptText="FirstName LastName">
+                           <padding>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </padding>
+                        </TextField>
+                        <Label layoutX="3.0" layoutY="13.0" text="Enter Name" />
+                        <RadioButton fx:id="csButton" layoutX="18.0" layoutY="61.0" mnemonicParsing="false" onAction="#selectDepart" text="CS" />
+                        <RadioButton fx:id="eceButton" layoutX="82.0" layoutY="61.0" mnemonicParsing="false" onAction="#selectDepart" text="ECE" />
+                        <RadioButton fx:id="itButton" layoutX="156.0" layoutY="61.0" mnemonicParsing="false" onAction="#selectDepart" text="IT" />
+                        <RadioButton fx:id="fulltimeButton" layoutX="365.0" layoutY="13.0" mnemonicParsing="false" onAction="#employeeTypeSelected" text="Fulltime" />
+                        <RadioButton fx:id="parttimeButton" layoutX="266.0" layoutY="13.0" mnemonicParsing="false" onAction="#employeeTypeSelected" text="Parttime" />
+                        <TextField fx:id="hourlyPay" layoutX="425.0" layoutY="100.0" promptText="Hourly Wage">
+                           <padding>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </padding>
+                        </TextField>
+                        <RadioButton fx:id="managerButton" layoutX="265.0" layoutY="61.0" mnemonicParsing="false" onAction="#selectAdmin" text="Manager" />
+                        <TextField fx:id="salary" layoutX="243.0" layoutY="100.0" promptText="Salary">
+                           <padding>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </padding>
+                        </TextField>
+                        <RadioButton fx:id="departmentHeadButton" layoutX="364.0" layoutY="61.0" mnemonicParsing="false" onAction="#selectAdmin" text="Department Head" />
+                        <RadioButton fx:id="directorButton" layoutX="506.0" layoutY="61.0" mnemonicParsing="false" onAction="#selectAdmin" text="Director" />
+                        <Label layoutX="73.0" layoutY="44.0" text="Department" />
+                        <Button fx:id="addButton" layoutX="3.0" layoutY="142.0" mnemonicParsing="false" onAction="#addEmployee" text="Add Employee" />
+                        <Button fx:id="removeButton" layoutX="106.0" layoutY="142.0" mnemonicParsing="false" onAction="#removeEmployee" text="Remove Employee" />
+                        <TextArea fx:id="print_message" layoutX="9.0" layoutY="211.0" prefHeight="320.0" prefWidth="575.0" />
+                        <RadioButton fx:id="managementButton" layoutX="458.0" layoutY="13.0" mnemonicParsing="false" onAction="#employeeTypeSelected" text="Management" />
+                        <TextField fx:id="parttimeHours" layoutX="276.0" layoutY="145.0" promptText="Enter Hours Worked">
+                           <padding>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </padding>
+                        </TextField>
+                        <Button fx:id="setHoursButton" layoutX="425.0" layoutY="142.0" mnemonicParsing="false" onAction="#setHours" text="Update/Set Hours Worked" />
+                        <Button fx:id="calculatePaymentsButton" layoutX="82.0" layoutY="183.0" mnemonicParsing="false" onAction="#calculatePayments" text="Calculate Pay" />
+                        <Button layoutX="11.0" layoutY="183.0" mnemonicParsing="false" onAction="#clearTextArea" prefHeight="27.0" prefWidth="75.0" text="Clear" />
+                        <DatePicker fx:id="date_hired" layoutX="12.0" layoutY="97.0" promptText="MM/DD/YYYY" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Company Database">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="importButton" layoutX="106.0" layoutY="35.0" mnemonicParsing="false" onAction="#importFile" text="Import Database" />
+                        <Button fx:id="exportButton" layoutX="246.0" layoutY="35.0" mnemonicParsing="false" onAction="#exportFile" text="Export Database" />
+                        <TextArea fx:id="print" layoutY="115.0" prefHeight="431.0" prefWidth="575.0" promptText="Earning Statements will show here" />
+                        <MenuButton layoutX="385.0" layoutY="35.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="120.0" text="Print Database">
+                          <items>
+                            <MenuItem fx:id="printButton" mnemonicParsing="false" onAction="#printStatements" text="Print Statements" />
+                            <MenuItem fx:id="printByDateHired" mnemonicParsing="false" onAction="#printDate" text="Print By Date Hired" />
+                              <MenuItem mnemonicParsing="false" onAction="#printDepart" text="Print By Department" />
+                          </items>
+                        </MenuButton>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </top>
+</BorderPane>
